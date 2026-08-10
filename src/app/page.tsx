@@ -3,15 +3,19 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Positioning from "@/components/Positioning";
+import Services from "@/components/Services";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       <Navbar onOpenContactModal={() => setIsContactModalOpen(true)} />
       <main className="flex-grow">
         <Hero onOpenContactModal={() => setIsContactModalOpen(true)} />
+        <Positioning />
+        <Services />
       </main>
 
       {/* Contact modal placeholder — implemented in Phase 5 */}
