@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Positioning from "@/components/Positioning";
 import Services from "@/components/Services";
+import CaseStudies from "@/components/CaseStudies";
+import SocialProof from "@/components/SocialProof";
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -16,6 +18,8 @@ export default function Home() {
         <Hero onOpenContactModal={() => setIsContactModalOpen(true)} />
         <Positioning />
         <Services />
+        <CaseStudies />
+        <SocialProof />
       </main>
 
       {/* Contact modal placeholder — implemented in Phase 5 */}
