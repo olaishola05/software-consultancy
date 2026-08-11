@@ -18,6 +18,18 @@ export default function Navbar({ onOpenContactModal }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu drawer is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: "Why Us", href: "#why-us" },
     { label: "Services", href: "#services" },
@@ -30,15 +42,15 @@ export default function Navbar({ onOpenContactModal }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-xl"
+        isScrolled || isMobileMenuOpen
+          ? "bg-[#0b0f19]/95 backdrop-blur-md border-b border-slate-800/90 py-3 shadow-xl"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="#top" className="flex items-center gap-2.5 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
             <Code2 className="w-5 h-5" />
           </div>
@@ -94,26 +106,29 @@ export default function Navbar({ onOpenContactModal }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Solid dark navy background to eliminate bleed-through) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-panel border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 mt-3">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-300 hover:text-white py-2"
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
+        <div className="md:hidden bg-[#0b0f19] border-b border-slate-800/90 px-6 pt-4 pb-8 space-y-4 shadow-2xl animate-in slide-in-from-top duration-200">
+          <nav className="flex flex-col space-y-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-medium text-slate-200 hover:text-blue-400 py-1.5 border-b border-slate-900 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="pt-4 flex flex-col gap-3">
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 onOpenContactModal();
               }}
-              className="w-full text-center py-2.5 rounded-xl border border-slate-700 text-slate-300 text-xs font-semibold hover:bg-slate-800"
+              className="w-full text-center py-3 rounded-xl border border-slate-700 text-slate-200 text-xs font-semibold hover:bg-slate-800 transition-colors"
             >
               Direct Contact
             </button>
@@ -122,7 +137,7 @@ export default function Navbar({ onOpenContactModal }: NavbarProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-xl bg-blue-600 text-white text-xs font-semibold shadow-lg shadow-blue-600/30"
+              className="w-full text-center py-3 rounded-xl bg-blue-600 text-white text-xs font-semibold shadow-lg shadow-blue-600/30 hover:bg-blue-500 transition-colors"
             >
               Book Call
             </a>

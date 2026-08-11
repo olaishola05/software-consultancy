@@ -3,7 +3,9 @@ export const BRAND_CONFIG = {
   tagline: "Senior Software Engineering Partner for Startups & SMEs",
   calendlyUrl: "https://calendly.com/apex-tech-partners/free-consultation",
   contactEmail: "hello@apextechpartners.com",
+  email: "hello@apextechpartners.com",
   contactPhone: "+1 (555) 019-2834",
+  phone: "+1 (555) 019-2834",
   address: "San Francisco, CA & Remote Worldwide",
 };
 
@@ -241,3 +243,6 @@ export const FAQ_ITEMS = [
     answer: "You own 100% of the code, intellectual property, repository access, and infrastructure secrets upon project completion. No lock-in, ever.",
   },
 ];
+
+/** Alias for FAQ_ITEMS — used by tests and components */
+export const FAQS = FAQ_ITEMS;

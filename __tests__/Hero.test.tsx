@@ -25,7 +25,10 @@ describe("Hero Component", () => {
 
   it("renders the low-friction trust subtext", () => {
     render(<Hero onOpenContactModal={vi.fn()} />);
-    expect(screen.getByText(HERO_CONTENT.trustSubtext)).toBeInTheDocument();
+    const splitTrustText = HERO_CONTENT.trustSubtext.split("•");
+    splitTrustText.forEach((text) => {
+      expect(screen.getByText(text.trim())).toBeInTheDocument();
+    });
   });
 
   it("renders all 4 metric values", () => {

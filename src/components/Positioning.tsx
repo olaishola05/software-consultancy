@@ -1,6 +1,5 @@
-"use client";
-
 import React from "react";
+import SectionHeader from "@/components/SectionHeader";
 import { PROBLEM_POSITIONING } from "@/lib/constants";
 import { AlertTriangle, Clock, CheckCircle2, ShieldAlert } from "lucide-react";
 
@@ -8,19 +7,11 @@ export default function Positioning() {
   return (
     <section id="why-us" className="py-20 bg-slate-950/60 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            <span>{PROBLEM_POSITIONING.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            {PROBLEM_POSITIONING.headline}
-          </h2>
-          <p className="text-slate-300 text-base leading-relaxed">
-            {PROBLEM_POSITIONING.subheadline}
-          </p>
-        </div>
+        <SectionHeader
+          badge={PROBLEM_POSITIONING.badge}
+          title={PROBLEM_POSITIONING.headline}
+          subtitle={PROBLEM_POSITIONING.subheadline}
+        />
 
         {/* 3-Way Comparison Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">

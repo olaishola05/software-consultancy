@@ -1,7 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
+import SectionHeader from "@/components/SectionHeader";
 import { TESTIMONIALS, TRUST_BADGES } from "@/lib/constants";
 import { Quote, Star } from "lucide-react";
 
@@ -9,19 +8,11 @@ export default function SocialProof() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            <span>Client Endorsements</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Trusted by Ambitious Founders & Product Leaders
-          </h2>
-          <p className="text-slate-300 text-base leading-relaxed">
-            Here is what engineering partners and founders say about our speed, technical rigor, and delivery.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Client Endorsements"
+          title="Trusted by Ambitious Founders & Product Leaders"
+          subtitle="Here is what engineering partners and founders say about our speed, technical rigor, and delivery."
+        />
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
