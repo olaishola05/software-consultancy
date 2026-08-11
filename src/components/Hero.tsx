@@ -61,9 +61,21 @@ export default function Hero({ onOpenContactModal }: HeroProps) {
             </div>
 
             {/* Trust Subtext */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-xs text-slate-400 font-medium pt-1">
-              <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
-              <span>{HERO_CONTENT.trustSubtext}</span>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1.5 text-xs text-slate-300 font-medium pt-1">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
+                15-min strategy call
+              </span>
+              <span className="hidden sm:inline text-slate-600">•</span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0 sm:hidden" />
+                No pushy sales pitch
+              </span>
+              <span className="hidden sm:inline text-slate-600">•</span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0 sm:hidden" />
+                Real technical roadmap feedback
+              </span>
             </div>
 
             {/* Metrics Row */}
