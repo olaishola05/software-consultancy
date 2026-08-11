@@ -21,6 +21,31 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: BRAND_CONFIG.name,
+  description: BRAND_CONFIG.tagline,
+  url: "https://apextechpartners.com",
+  email: BRAND_CONFIG.email,
+  telephone: BRAND_CONFIG.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "San Francisco",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
+  priceRange: "$$$$",
+  knowsAbout: [
+    "Software Architecture",
+    "MVP Development",
+    "SaaS Platform Engineering",
+    "FinTech Integration",
+    "Next.js Development",
+    "Cloud Infrastructure",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +53,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-[#0b0f19] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-screen bg-[#0b0f19] text-slate-100 antialiased selection:bg-blue-600 selection:text-white bg-grid-pattern">
         {children}
       </body>
     </html>

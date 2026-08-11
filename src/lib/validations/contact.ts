@@ -1,0 +1,17 @@
+import { z } from "zod";
+
+export const contactSchema = z.object({
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters long")
+    .max(100, "Name cannot exceed 100 characters"),
+  email: z
+    .string()
+    .email("Please provide a valid email address (e.g. name@company.com)"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters long to provide sufficient context")
+    .max(2000, "Message cannot exceed 2000 characters"),
+});
+
+export type ContactFormData = z.infer<typeof contactSchema>;

@@ -1,33 +1,24 @@
-"use client";
-
 import React from "react";
+import SectionHeader from "@/components/SectionHeader";
 import { SERVICES } from "@/lib/constants";
 import { Rocket, Layers, ShieldCheck, Cpu, ArrowUpRight, Check } from "lucide-react";
 
-export default function Services() {
-  const iconMap: Record<string, React.ReactNode> = {
-    Rocket: <Rocket className="w-6 h-6 text-blue-400" />,
-    Layers: <Layers className="w-6 h-6 text-blue-400" />,
-    ShieldCheck: <ShieldCheck className="w-6 h-6 text-blue-400" />,
-    Cpu: <Cpu className="w-6 h-6 text-blue-400" />,
-  };
+const iconMap: Record<string, React.ReactNode> = {
+  Rocket: <Rocket className="w-6 h-6 text-blue-400" />,
+  Layers: <Layers className="w-6 h-6 text-blue-400" />,
+  ShieldCheck: <ShieldCheck className="w-6 h-6 text-blue-400" />,
+  Cpu: <Cpu className="w-6 h-6 text-blue-400" />,
+};
 
+export default function Services() {
   return (
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            <span>Specialized Capabilities</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Engineering Solutions Focused Strictly on Business Outcomes
-          </h2>
-          <p className="text-slate-300 text-base leading-relaxed">
-            We don&apos;t build generic brochure websites. We build scalable, high-conversion software platforms designed for growth.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Specialized Capabilities"
+          title="Engineering Solutions Focused Strictly on Business Outcomes"
+          subtitle="We don't build generic brochure websites. We build scalable, high-conversion software platforms designed for growth."
+        />
 
         {/* 4 Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -50,7 +41,6 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                {/* Outcome-focused single-sentence description */}
                 <p className="text-slate-300 text-sm leading-relaxed font-normal">
                   {service.description}
                 </p>
